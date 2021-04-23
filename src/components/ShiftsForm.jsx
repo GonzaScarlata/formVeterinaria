@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import NoList from "./NoList";
 import "./shiftsForm.css";
 import ShiftsList from "./ShiftsList";
 
@@ -133,7 +134,12 @@ const ShiftsForm = () => {
                     </Button>
                 </div>
             </Form>
-            <ShiftsList shiftsArray={shiftsArray} deleteShift={deleteShift}/>
+
+            {
+                (shiftsArray !== []) ? (
+                    <ShiftsList shiftsArray={shiftsArray} deleteShift={deleteShift}/>)
+                 : (<NoList />)
+            }
         </section>
     );
 };
