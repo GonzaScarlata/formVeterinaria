@@ -62,6 +62,13 @@ const ShiftsForm = () => {
     useEffect(() => {
         localStorage.setItem("shiftsArray", JSON.stringify(shiftsArray));
     }, [shiftsArray]);
+
+    const deleteShift = (shiftId) => {
+        let modifiedShiftsArray = shiftsArray.filter((shift) => shift.id !== shiftId);
+        setShiftsArray(modifiedShiftsArray);
+    };
+
+
     return (
         <section id="shifts" className="shadow-lg rounded container my-4">
             <h1 className="text-center">Solicitud de turno</h1>
@@ -126,7 +133,7 @@ const ShiftsForm = () => {
                     </Button>
                 </div>
             </Form>
-            <ShiftsList shiftsArray={shiftsArray}/>
+            <ShiftsList shiftsArray={shiftsArray} deleteShift={deleteShift}/>
         </section>
     );
 };

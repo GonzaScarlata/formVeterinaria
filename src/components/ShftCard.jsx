@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 const ShftCard = (props) => {
     return (
@@ -18,6 +18,12 @@ const ShftCard = (props) => {
                     <span>Fecha: {props.card.fecha}</span>
                     <span>Hora: {props.card.hora}</span>
                 </Card.Text>
+                <Button
+                    variant="danger"
+                    onClick={() => props.deleteShift(props.card.id)}
+                >
+                    Borrar Turno
+                </Button>
             </Card.Body>
         </Card>
     );

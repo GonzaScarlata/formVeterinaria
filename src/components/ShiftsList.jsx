@@ -7,7 +7,7 @@ const ShiftsList = (props) => {
             <h2 className="text-center">Turnos registrados</h2>
             <div className="container d-flex justify-content-around">
                 {props.shiftsArray.map((value, idx) => (
-                    <ShftCard card={value} key={idx} />
+                    <ShftCard card={value} key={idx} deleteShift={props.deleteShift}/>
                 ))}
             </div>
         </div>
